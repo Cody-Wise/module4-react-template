@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -7,4 +7,49 @@ body {
 }
 
 :root {
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-font: 'Roboto', Corbel, 'Lucida Grande', 'Lucida Sans Unicode',
+    'Lucida Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans',
+    Verdana, 'Verdana Ref', sans-serif;
+  --label-font: 'Open Sans', 'Segoe UI', Candara, 'Bitstream Vera Sans',
+    'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref',
+    sans-serif;
+
+  --header-footer-color: #ffd8be;
+  --color-2: #ffeedd;
+  --offset-color: #d3dcbd;
+  --color-4: #b8b8ff;
+  --background-color: #f8f7ff;
+  --black-color: rgb(27, 42, 48);
+  --caption-color: rgb(140, 82, 163);
+  --button-color: #9381ff;
+  --white-color: white;
+  --menu-background: rgba(144, 238, 144, 0.948)
+
+  --padding: 20px;
+  @media (min-width: 750px) {
+    --padding: 40px;
+  }
+}
+
+p {
+  margin: 30px;
+}
+
+body {
+  font-family: var(--primary-font);
+  background: var(--background-color);
+  color: var(--black-color);
+}
+
+:global(.label-text) {
+  font-family: var(--label-font);
+  /* text-transform: uppercase; */
+  letter-spacing: 0.06em;
 }

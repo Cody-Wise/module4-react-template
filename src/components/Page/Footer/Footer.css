@@ -1,6 +1,10 @@
-Footer {
-  background-color: lightblue;
+.footer {
+  display: flex;
+  align-items: center;
+  background-color: var(--header-footer-color);
   height: 30px;
-  padding: 20px 0;
-  text-align: center;
+  @media (min-width: 750px) {
+    height: 45px;
+  }
+  justify-content: center;
 }

@@ -23,14 +23,16 @@ body {
 
   --header-footer-color: #ffd8be;
   --color-2: #ffeedd;
-  --offset-color: #d3dcbd;
+  --offset-color: #9381ff;
   --color-4: #b8b8ff;
   --background-color: #f8f7ff;
   --black-color: rgb(27, 42, 48);
   --caption-color: rgb(140, 82, 163);
   --button-color: #9381ff;
-  --white-color: white;
+  --black-color: black;
   --menu-background: rgba(144, 238, 144, 0.948)
+
+  --spacing-unit: 10px;
 
   --padding: 20px;
   @media (min-width: 750px) {

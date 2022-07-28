@@ -13,17 +13,24 @@ function FormControl({ label, children, className: customClassName }) {
   );
 }
 
-function Label({ text }) {
-  return <span className="label-text">{text}</span>;
+function Label({ text, text2 }) {
+  return (
+    <>
+      <span className="label-text">{text}</span>
+      <span className="label-text">{text2}</span>
+    </>
+  );
 }
 
-export function CheckboxControl({ label, text, ...rest }) {
+export function CheckboxControl({ label, label2, text, text2, ...rest }) {
   return (
     <div className={styles.FormControl}>
-      <Label text={label} />
+      <Label text={label} text2={label2} />
       <label className={styles.CheckboxLabel}>
         <input type="checkbox" {...rest} />
         {text}
+        <input type="checkbox" {...rest} />
+        {text2}
       </label>
     </div>
   );

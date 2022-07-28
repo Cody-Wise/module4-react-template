@@ -2,7 +2,7 @@
   display: block;
 
   &:not(:first-child) {
-    margin-top: 15px;
+    margin-top: 10px;
   }
 
   &:not(:last-child) {
@@ -13,7 +13,7 @@
     display: block;
     font-size: 0.9em;
     margin-bottom: 2px;
-    color: var(--caption-color);
+    color: var(--color-2);
   }
 
   input:not([type='checkbox']),
@@ -54,7 +54,8 @@
 }
 
 .Fieldset {
-  border-top: 1px solid black;
+  border: 2px solid black;
+  padding: 10px;
 
   legend {
     text-align: center;

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { forwardRef } from 'react';
 import classNames from 'classnames';
 import styles from './FormControls.css';
 
@@ -36,13 +37,17 @@ export function CheckboxControl({ label, label2, text, text2, ...rest }) {
   );
 }
 
-export function InputControl({ label, className, ...rest }) {
-  return (
-    <FormControl label={label} className={className}>
-      <input {...rest} />
-    </FormControl>
-  );
-}
+export const InputControl = forwardRef(
+  ({ label, className, value, ...rest }, ref) => {
+    return (
+      <FormControl label={label} className={className}>
+        <input ref={ref} value={value || ''} {...rest} />
+      </FormControl>
+    );
+  }
+);
+
+InputControl.displayName = 'InputControl';
 
 export function SelectControl({ label, children, ...rest }) {
   return (

@@ -1,29 +1,19 @@
+import { useBunnies } from '../../state/hooks/fuzzyBunny';
+import DeleteButton from '../Forms/DeleteButton';
 import styles from './BunnyList.css';
 
 export function BunnyList() {
+  const { bunnies } = useBunnies();
+  console.log(bunnies);
   return (
     <>
       <ul className={styles.BunnyList}>
-        <li>
-          <h3>yotz</h3>
-          <button>ⓧ</button>
-        </li>
-        <li>
-          <h3>yolo</h3>
-          <button>ⓧ</button>
-        </li>
-        <li>
-          <h3>Hector</h3>
-          <button>ⓧ</button>
-        </li>
-        <li>
-          <h3>O&apos;Hare</h3>
-          <button>ⓧ</button>
-        </li>
-        <li>
-          <h3>add new</h3>
-          <button>ⓧ</button>
-        </li>
+        {bunnies.map((bunny) => (
+          <li key={bunny.id}>
+            <h3>{bunny.name}</h3>
+            <DeleteButton />
+          </li>
+        ))}
       </ul>
       <form className={styles.AddBunny}>
         <input

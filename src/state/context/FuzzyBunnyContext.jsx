@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { createContext, useReducer } from 'react';
-
+import { createContext, useReducer, useMemo } from 'react';
 export const FuzzyBunnyContext = createContext();
+export const FuzzyBunnyDispatchContext = createContext();
 
 function reducer(list, { type, payload }) {
   switch (type) {
@@ -25,14 +25,21 @@ export default function FuzzyBunnyProvider({ children }) {
   // TODO: useMemo?
   const value = {
     families,
-    familyDispatch,
     bunnies,
-    bunniesDispatch,
   };
-
+  console.log(bunnies, 'context');
+  const dispatchValue = useMemo(
+    () => ({
+      bunniesDispatch,
+      familyDispatch,
+    }),
+    [bunniesDispatch, familyDispatch]
+  );
   return (
     <FuzzyBunnyContext.Provider value={value}>
-      {children}
+      <FuzzyBunnyDispatchContext.Provider value={dispatchValue}>
+        {children}
+      </FuzzyBunnyDispatchContext.Provider>
     </FuzzyBunnyContext.Provider>
   );
 }

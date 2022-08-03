@@ -39,3 +39,12 @@ export async function updateFamily(family) {
 
   return response;
 }
+
+export async function addBunny(bunny) {
+  return await client.from('fuzzy_bunnies').insert(bunny).single();
+}
+
+export async function getBunnies() {
+  const response = await client.from('fuzzy_bunnies').select('*');
+  return response;
+}

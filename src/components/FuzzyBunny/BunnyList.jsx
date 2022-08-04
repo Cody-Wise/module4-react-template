@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { useBunnies } from '../../state/hooks/fuzzyBunny';
 import DeleteButton from '../Forms/DeleteButton';
 import styles from './BunnyList.css';

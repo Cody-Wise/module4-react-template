@@ -49,7 +49,7 @@
 .FormButton {
   display: flex;
   justify-content: center;
-  margin: 15px;
+  margin: 20px;
   padding: 10px 25px;
   background: var(--color-2);
   border: 1px solid var(--header-color);

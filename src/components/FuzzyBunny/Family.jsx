@@ -8,6 +8,7 @@ import BunnyTags from './BunnyTags.jsx';
 import DeleteButton from '../Forms/DeleteButton.jsx';
 import { InputControl } from '../Forms/FormControls.jsx';
 import styles from './Family.css';
+import { BunnyList } from './BunnyList.jsx';
 
 export default function Family({ family }) {
   const { update, remove } = useFamilyActions();
@@ -28,7 +29,7 @@ export default function Family({ family }) {
       <DeleteButton className={styles.DeleteButton} onClick={handleRemove} />
       <div className={styles.ContentContainer}>
         <EditableHeader initialValue={family.name} onEdit={handleEdit} />
-        <BunnyTags bunnies={family.fuzzy_bunnies} familyID={family.id} />
+        <BunnyList bunnies={family.fuzzy_bunnies} familyID={family.id} />
       </div>
     </li>
   );

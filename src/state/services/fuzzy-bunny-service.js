@@ -26,15 +26,25 @@ export async function removeFamily(id) {
 
 export async function addFamily(family) {
   const response = await client.from('loving_families').insert(family).single();
-
+  response.data.fuzzy_bunnies = [];
   return response;
 }
 
-export async function updateFamily(family) {
+export async function updateFamily(id, family) {
   const response = await client
     .from('loving_families')
     .update(family)
-    .eq('id', family.id)
+    .eq('id', id)
+    .single();
+  response.data.fuzzy_bunnies = [];
+  return response;
+}
+
+export async function removeBunny(id) {
+  const response = await client
+    .from('fuzzy_bunnies')
+    .delete()
+    .eq('id', id)
     .single();
 
   return response;

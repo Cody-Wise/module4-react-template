@@ -10,6 +10,7 @@ import {
   updateFamily,
   getBunnies,
   addBunny,
+  removeBunny,
 } from '../services/fuzzy-bunny-service.js';
 import { showSuccess, showError } from '../services/toaster.js';
 
@@ -39,13 +40,12 @@ export function useFamilies() {
     return () => (ignore = true);
   }, []);
 
-  return { families, error };
+  return { families: families || [], error };
 }
 
 export function useBunnies() {
   const [error, setError] = useState(null);
   const { bunnies } = useContext(FuzzyBunnyContext);
-  console.log(bunnies, 'hook');
   const { bunniesDispatch } = useContext(FuzzyBunnyDispatchContext);
   useEffect(() => {
     if (bunnies) return;
@@ -68,7 +68,7 @@ export function useBunnies() {
     return () => (ignore = true);
   }, []);
 
-  return { bunnies, error };
+  return { bunnies: bunnies || [], error };
 }
 
 function createDispatchActions(dispatch) {
@@ -123,7 +123,13 @@ export function useBunnyActions() {
     type: 'add',
     success: (data) => `Added ${data.name}`,
   });
-  return useMemo(() => ({ add }), [bunniesDispatch]);
+
+  const remove = createAction({
+    service: removeBunny,
+    type: 'remove',
+    success: (data) => `Removed ${data.name}`,
+  });
+  return useMemo(() => ({ add, remove }), [bunniesDispatch]);
 }
 
 // eslint-disable-next-line eol-last

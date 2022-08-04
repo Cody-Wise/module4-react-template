@@ -27,7 +27,6 @@ export default function FuzzyBunnyProvider({ children }) {
     families,
     bunnies,
   };
-  console.log(bunnies, 'context');
   const dispatchValue = useMemo(
     () => ({
       bunniesDispatch,

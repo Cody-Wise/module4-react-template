@@ -5,7 +5,7 @@ import { InputControl, FormButton } from '../Forms/FormControls.jsx';
 import { useBunnyActions } from '../../state/hooks/fuzzyBunny.js';
 import styles from './BunnyTags.css';
 export default function BunnyTags({ bunnies, familyID }) {
-  const { add } = useBunnyActions();
+  const { add, remove } = useBunnyActions();
   const [name, setName] = useState('');
   //   const [family_id, setFamilyId] = useState('');
   const handleChange = ({ target }) => setName(target.value);
@@ -16,13 +16,20 @@ export default function BunnyTags({ bunnies, familyID }) {
     setName('');
   };
 
+  const handleRemove = async (bunny) => {
+    const message = `Are you sure you want to remove bunny ${bunny.name}?`;
+    if (confirm(message)) {
+      await remove(bunny.id);
+    }
+  };
+
   return (
     <>
       <ul className={styles.BunnyTags}>
         {bunnies.map((bunny) => (
           <li key={bunny.id}>
             <h3>{bunny.name}</h3>
-            <DeleteButton />
+            <DeleteButton onClick={() => handleRemove(bunny)} />
           </li>
         ))}
       </ul>

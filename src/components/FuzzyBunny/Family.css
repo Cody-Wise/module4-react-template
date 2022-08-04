@@ -13,6 +13,10 @@
     padding: 0;
   }
 
+  input {
+    margin-top: 20px;
+  }
+
   .ContentContainer {
     height: 100%;
     display: grid;

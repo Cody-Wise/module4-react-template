@@ -1,6 +1,7 @@
 import Menu from './Menu.jsx';
 import Navigation from '../Navigation/Navigation.jsx';
 import styles from './Header.css';
+import User from './User.jsx';
 const primary = [
   { to: '/', label: 'Home' },
   { to: 'pokedex', label: 'Pokedex' },
@@ -21,7 +22,7 @@ export default function Header() {
         <Navigation navigation={primary} />
       </div>
 
-      <div>User</div>
+      <User />
     </header>
   );
 }

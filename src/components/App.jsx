@@ -1,25 +1,18 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom';
-import Layout from './Page/Layout.jsx';
-import Home from './Home/Home.jsx';
-import List from './List/List.jsx';
-import About from './About/About.jsx';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import Routes from './Routes.jsx';
+import UserProvider from '../state/context/UserContext.jsx';
+import FuzzyBunnyProvider from '../state/context/FuzzyBunnyContext.jsx';
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="list" element={<List />} />
-          <Route path="about" element={<About />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
-    </Router>
+    <UserProvider>
+      <FuzzyBunnyProvider>
+        <Toaster />
+        <Router>
+          <Routes />
+        </Router>
+      </FuzzyBunnyProvider>
+    </UserProvider>
   );
 }

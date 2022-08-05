@@ -1,0 +1,6 @@
+.AddFamily {
+  display: grid;
+  grid-template-columns: 175px 50px;
+  align-items: end;
+  gap: 2px;
+}

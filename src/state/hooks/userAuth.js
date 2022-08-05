@@ -45,6 +45,7 @@ export function useProfile() {
   const { setProfile } = useContext(UserActionContext);
 
   const updateProfile = async ({ avatar, ...profile }) => {
+    console.log('update profile fired');
     const { url, error } = await uploadAvatar(user.id, avatar);
     if (error) {
       showError(error.message);
@@ -53,7 +54,8 @@ export function useProfile() {
       console.log('avatar upload', url, profile);
       const { data, error } = await upsertProfile({
         ...profile,
-        avatar: url,
+        id: user.id,
+        avatar_url: url,
       });
 
       if (error) {

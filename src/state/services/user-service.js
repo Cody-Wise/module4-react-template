@@ -42,13 +42,14 @@ export function removeLocalProfile() {
 
 export async function getProfile() {
   const user = getUser();
+  console.log(user);
 
-  return await client.from('profiles').select().eq('id', user.id).single();
+  return await client.from('profiles3').select().eq('id', user.id).single();
 }
 
 export async function upsertProfile(profile) {
   const response = await client
-    .from('profiles')
+    .from('profiles3')
     .upsert(profile)
     .eq('id', profile.id)
     .single();
